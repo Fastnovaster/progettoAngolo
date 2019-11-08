@@ -1,0 +1,37 @@
+<form [formGroup]="form_azienda" (ngSubmit)="onSubmit()" >
+    <div>
+      <label for="domanda_1">Sapevi gia programmare prima di partecipare a Young Talent in Action?</label>
+      <input type="radio"  value="Si" formControlName="domanda_1">Si
+      <input type="radio"  value="No" formControlName = "domanda_1">No
+    </div>
+    <div *ngIf = "this.form_azienda.get('domanda_1').value =='Si'">
+      <label for="domanda_2">Quali strumenti conoscievi gia fra quelli utilizzati durante Young Tanlent in Action?</label>
+      <br>
+      <input type="checkbox"  value= "HTML"  formControlName = "domanda_2_html" > HTML<br>
+      <input type="checkbox"  value="Javascript" formControlName = "domanda_2_javascript"> Javascript<br>
+      <input type="checkbox"  value="CSS" formControlName = "domanda_2_CSS">CSS <br>
+      <input type="checkbox"  value="Angular" formControlName = "domanda_2_Angular"> Angular<br>
+      <input type="checkbox"  value="SB" formControlName = "domanda_2_SB"> Strumenti di sviluppo del browser<br>
+      <label for="domanda_3">Quale suggerimento daresti quale miglioramento per una prossima edizione di Young Tanlent in Action?</label>
+      <br>
+      <textarea formControlName="domanda_3"></textarea>
+    </div>  
+    <div *ngIf = "this.form_azienda.get('domanda_1').value =='No'">
+        <label for="domanda_4">Quale la motivazione che ti ha spinto a partecipare a Young Tanlent in Action?</label>
+        <br>
+        <textarea formControlName="domanda_4"></textarea>
+        <br>
+        <label for="domanda_5">Quale strumento hai trovato piu difficoltoso fra quelli utilizzati durante  Young Tanlent in Action?</label>
+        <select formControlName = "domanda_5">
+                <option value="HTML"  >HTML</option>
+                <option value="Javascript">Javascript</option>
+                <option value="CSS" >CSS</option>
+                <option value="Angular" >Angular</option>
+         </select>
+    </div>
+    
+    <button type="submit">Invia</button>
+  </form>
+
+  {{form_azienda.get("domanda_1").value}}
+  
